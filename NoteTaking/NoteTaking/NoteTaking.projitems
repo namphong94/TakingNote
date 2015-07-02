@@ -9,6 +9,17 @@
     <Import_RootNamespace>NoteTaking</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)NoteTaking.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\SQLite.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Note.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\NoteCell.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\NotePage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\NoteListPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)App.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\NoteDatabase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Data\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Models\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Views\" />
   </ItemGroup>
 </Project>

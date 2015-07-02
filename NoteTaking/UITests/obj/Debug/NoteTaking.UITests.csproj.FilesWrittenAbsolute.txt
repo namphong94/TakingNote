@@ -1,0 +1,1 @@
+/Users/xamarin/Desktop/TakingNote/NoteTaking/UITests/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
