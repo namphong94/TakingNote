@@ -18,7 +18,8 @@ namespace NoteTaking
 		{
 			get{ return database; }
 		}
-	
+
+
 	}
 }
 

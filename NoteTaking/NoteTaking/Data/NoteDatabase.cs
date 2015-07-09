@@ -44,7 +44,7 @@ namespace NoteTaking
 		{
 			lock (locker) 
 			{
-				return database.Table<Note> ().FirstOrDefault (x=> x.ID == id);
+				return database.Table<Note> ().FirstOrDefault (x=> x.NoteID == id);
 			}
 		}
 
@@ -52,10 +52,10 @@ namespace NoteTaking
 		{
 			lock (locker)
 			{
-				if (item.ID != 0)
+				if (item.NoteID != 0)
 				{
 					database.Update (item);
-					return item.ID;
+					return item.NoteID;
 				} 
 				else
 					return database.Insert (item);

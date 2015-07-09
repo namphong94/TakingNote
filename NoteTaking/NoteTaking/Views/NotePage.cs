@@ -39,7 +39,7 @@ namespace NoteTaking
 			deleteButton.Clicked += (sender, e) => 
 			{
 				var note = (Note)BindingContext;
-				App.Database.DeleteItem(note.ID);
+				App.Database.DeleteItem(note.NoteID);
 				Navigation.PopAsync();
 			};
 
@@ -49,6 +49,17 @@ namespace NoteTaking
 				var note = (Note)BindingContext;
 				Navigation.PopAsync();
 			};
+
+			var image = new Image { Aspect = Aspect.AspectFit };
+
+			var takePhotoButton = new Button {Text = "Take a photo" };
+			takePhotoButton.Clicked += (sender, e) => 
+			{
+				var note = (Note)BindingContext;
+				Navigation.PopAsync();
+			};
+
+
 
 			Content = new StackLayout 
 			{
