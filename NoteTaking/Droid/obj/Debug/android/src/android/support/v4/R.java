@@ -11,8 +11,11 @@ public final class R {
     public static final class attr {
     }
     public static final class drawable {
-        public static int icon=0x7f020000;
-        public static int monoandroidsplash=0x7f020001;
+        public static int check=0x7f020000;
+        public static int check2x=0x7f020001;
+        public static int icon=0x7f020002;
+        public static int monoandroidsplash=0x7f020003;
+        public static int plus=0x7f020004;
     }
     public static final class style {
         public static int Mono_Android_Theme_Splash=0x7f030000;

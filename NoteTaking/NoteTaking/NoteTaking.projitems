@@ -16,10 +16,19 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\NoteDatabase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\SQLite.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Camara\AbstractOptions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Camara\CameraDevice.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Camara\CameraOptions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Camara\IMediaFile.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Camara\IMediaPicker.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Camara\MediaFile.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Camara\MediaPicker.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Camara\VideoOptions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Data\" />
     <Folder Include="$(MSBuildThisFileDirectory)Models\" />
     <Folder Include="$(MSBuildThisFileDirectory)Views\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Camara\" />
   </ItemGroup>
 </Project>
