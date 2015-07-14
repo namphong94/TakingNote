@@ -10,13 +10,47 @@ using System.Runtime.CompilerServices;
 using System.Globalization;
 using System.Reflection;
 using Camera_Test.Media;
+using Xamarin.Forms.Maps;
+using Xamarin.Geolocation;
 
 namespace NoteTaking
 {
 	public class NotePage : ContentPage
 	{
 		PhotoListData pld;
+		Geolocator locator;
+		Xamarin.Geolocation.Position position = new Xamarin.Geolocation.Position();
+		MyLocator location;
+		public interface ICurrentLocation
+		{
+			MyLocator SetCurrentLocation ();
+		}
 
+		public MyLocator SetCurrentLocation()
+		{
+			GetPosition ();
+			location = new MyLocator ()
+			{ 
+				Latitude = position.Latitude,
+				Longitude = position.Longitude
+			};
+			return location;
+		}
+		async void GetPosition()
+		{
+			try 
+			{
+				locator = new Geolocator{DesiredAccuracy =50};
+				if ( locator.IsListening != true )
+					locator.StartListening(minTime: 1000, minDistance: 0);
+				position = await locator.GetPositionAsync (timeout: 20000);
+			}
+
+			catch ( Exception e) 
+			{
+				
+			}
+		}
 		public NotePage ()
 		{
 			this.SetBinding (ContentPage.TitleProperty, "Title");
@@ -25,14 +59,31 @@ namespace NoteTaking
 
 			var nameLabel = new Label { Text="Title" };
 			var nameEntry = new Entry ();
-
 			nameEntry.SetBinding (Entry.TextProperty,"Title");
 
 
 			var notesLabel = new Label {Text = "Text" };
 			var notesEntry = new Entry ();
-
 			notesEntry.SetBinding (Entry.TextProperty,"Text");
+
+
+			MyLocator location = DependencyService.Get<ICurrentLocation> ().SetCurrentLocation ();
+
+			var locationLabel = new Label { Text="Location" };
+			var map = new Map ( 
+				MapSpan.FromCenterAndRadius( 
+					new Xamarin.Forms.Maps.Position (location.Latitude,location.Longitude), 
+					Distance.FromMiles(0.3))){
+				IsShowingUser = true,
+				HeightRequest = 100, 
+				WidthRequest = 960, 
+				VerticalOptions = LayoutOptions.FillAndExpand 
+			};
+
+
+
+
+
 
 			var saveButton = new Button {Text = "Save" };
 			saveButton.Clicked += (sender, e) =>
@@ -65,7 +116,7 @@ namespace NoteTaking
 			{
 				VerticalOptions= LayoutOptions.StartAndExpand,
 				Padding= new Thickness (20), 
-				Children= {nameLabel, nameEntry, notesLabel, notesEntry, saveButton, deleteButton,Photo,cancelButton
+				Children= {nameLabel, nameEntry, notesLabel, notesEntry, locationLabel, map, saveButton, deleteButton,Photo,cancelButton
 				}
 			};
 		}
@@ -87,16 +138,7 @@ namespace NoteTaking
 				doPhotoLibrary(pld);
 			}
 #else
-			if (App.isIOS8) // for iOS 8.0
-			{
-			var avAlert = UIAlertController.Create("Select Source", "", UIAlertControllerStyle.ActionSheet);
-			avAlert.AddAction(UIAlertAction.Create("Camera", UIAlertActionStyle.Default, async (UIAlertAction obj) => doCameraPhoto(pld)));
-			avAlert.AddAction(UIAlertAction.Create("Photo Library", UIAlertActionStyle.Default, async (UIAlertAction obj) => doPhotoLibrary(pld)));
-			avAlert.AddAction(UIAlertAction.Create("Cancel", UIAlertActionStyle.Default, null));
-			App.rootController.ShowViewController(avAlert, null);
-			}
-			else
-			{
+
 			var action = await DisplayActionSheet("Select Source", "Cancel", null, "Camera", "Photo Library");
 			if (action == "Camera")
 			{
@@ -107,7 +149,6 @@ namespace NoteTaking
 			doPhotoLibrary(pld);
 			}
 			//doPhotoLibrary(pld);
-			}
 #endif
 		}
 
@@ -184,10 +225,7 @@ namespace NoteTaking
 		}
 
 	}
-
-
-
-
+		
 	public class PhotoListData : INotifyPropertyChanged
 	{
 		public event PropertyChangedEventHandler PropertyChanged;

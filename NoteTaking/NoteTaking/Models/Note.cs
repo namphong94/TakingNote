@@ -17,9 +17,13 @@ namespace NoteTaking
 
 		public string Text { get; set;}
 
+		//public MyLocator MyLocation { get; set;}
+
+
 		//public ImageSource Image { set; get; }
 
 		//public string FileUri { set; get; }
+
 	}
 }
 

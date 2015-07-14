@@ -25,7 +25,7 @@ namespace NoteTaking
 
 			listView.ItemSelected += (sender, e) => {
 				var note = (Note)e.SelectedItem;
-				var notePage = new NotePage();
+				var notePage = new MapView();
 				notePage.BindingContext = note;
 				Navigation.PushAsync(notePage);
 			};

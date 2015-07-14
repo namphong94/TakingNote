@@ -24,7 +24,11 @@
 /Users/xamarin/Desktop/TakingNote/NoteTaking/iOS/bin/iPhoneSimulator/Debug/NoteTaking.iOS.exe
 /Users/xamarin/Desktop/TakingNote/NoteTaking/iOS/obj/iPhoneSimulator/Debug/NoteTaking.iOS.exe
 /Users/xamarin/Desktop/TakingNote/NoteTaking/iOS/obj/iPhoneSimulator/Debug/NoteTaking.iOS.exe.mdb
+/Users/xamarin/Desktop/TakingNote/NoteTaking/iOS/bin/iPhoneSimulator/Debug/Calabash.dll
+/Users/xamarin/Desktop/TakingNote/NoteTaking/iOS/bin/iPhoneSimulator/Debug/Xamarin.Mobile.dll
 /Users/xamarin/Desktop/TakingNote/NoteTaking/iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.Platform.iOS.dll
 /Users/xamarin/Desktop/TakingNote/NoteTaking/iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.Core.dll
 /Users/xamarin/Desktop/TakingNote/NoteTaking/iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.Xaml.dll
-/Users/xamarin/Desktop/TakingNote/NoteTaking/iOS/bin/iPhoneSimulator/Debug/Calabash.dll
+/Users/xamarin/Desktop/TakingNote/NoteTaking/iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.Platform.dll
+/Users/xamarin/Desktop/TakingNote/NoteTaking/iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.Maps.iOS.dll
+/Users/xamarin/Desktop/TakingNote/NoteTaking/iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.Maps.dll
